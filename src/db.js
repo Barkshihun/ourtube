@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://127.0.0.1:27017/wetube");
+mongoose.connect(process.env.DB_URL);
 
 const handleOpen = () => console.log("✔ Connecting to DB!");
 const handleError = (error) => console.log("❌ DB error\n", error);
