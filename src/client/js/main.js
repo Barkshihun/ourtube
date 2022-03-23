@@ -1,2 +1,2 @@
 import "../scss/style.scss";
-console.log("Hi!");
+import regeneratorRuntime from "regenerator-runtime";

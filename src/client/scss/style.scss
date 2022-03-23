@@ -7,6 +7,8 @@
 @import "./screens/search.scss";
 @import "./screens/profile.scss";
 @import "./screens/edit-profile.scss";
+@import "./screens/upload.scss";
+@import "./screens/watch.scss";
 
 // Components
 @import "./components/header.scss";
@@ -15,6 +17,19 @@
 @import "./components/shared.scss";
 @import "./components/forms.scss";
 @import "./components/social-login.scss";
+@import "./components/video-player.scss";
+
+//Animation
+@keyframes goAway {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
 
 // Defaults
 a {
@@ -33,4 +48,22 @@ main {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+}
+
+.message {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 200px;
+  padding: 10px 20px;
+  border-radius: 1000px;
+  text-align: center;
+  animation: goAway 0.5s ease-in-out forwards;
+  animation-delay: 5s;
+  &.error {
+    background-color: $yellow;
+    color: $bg;
+  }
 }
