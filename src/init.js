@@ -1,4 +1,5 @@
 import "dotenv/config";
+import regeneratorRuntime from "regenerator-runtime";
 import "./db";
 import "./models/Video";
 import "./models/User";
