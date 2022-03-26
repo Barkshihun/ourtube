@@ -1,6 +1,7 @@
 import Video from "../models/Video";
 import User from "../models/User";
 import Comment from "../models/Comment";
+import { isHeroku } from "../middleware";
 
 export const home = async (req, res) => {
   const videos = await Video.find({})
@@ -78,8 +79,10 @@ export const postUpload = async (req, res) => {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl: video[0].location,
-      thumbUrl: thumb[0].location.replace(/[\\]/g, "/"),
+      fileUrl: isHeroku ? video[0].location : video[0].path,
+      thumbUrl: isHeroku
+        ? thumb[0].location.replace(/[\\]/g, "/")
+        : thumb[0].path.replace(/[\\]/g, "/"),
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
